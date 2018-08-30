@@ -28,7 +28,7 @@
   <parent>
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>httpcomponents-core</artifactId>
-    <version>4.4.11-SNAPSHOT</version>
+   <version>4.4.1001</version>
   </parent>
   <artifactId>httpcore-nio</artifactId>
   <name>Apache HttpCore NIO</name>
@@ -54,11 +54,6 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

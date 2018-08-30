@@ -1,3 +1,20 @@
+Release 4.4.1001 - Sealights internal
+---------------
+This is a private Sealights version, made on base of branch 4.4.x.
+Version number 4.4.1001 reflects the base version 4.4.10; two last digits serves for Sealights versions.
+
+The Sealights private version excludes commons-logging dependencies, since them caused problems in using of test-listener with JBOSS framework.
+
+The following changes were done:
+* The commons-logging dependencies were replaced with slj4j-api dependencies.
+* The package 'org.apache.commons.logging' was added. The package contains classes Log and LogFactory, which implement the bridge
+to slf4j logging framework. This 'cheats' the httpcomponents classes, which continue to use classed Log and LogFactory.
+* Parent project org.apache... and several related plugins were removed, since the private version is for the internal use only.
+* All modules except http-core, were excluded from the build
+
+Note: To build the project -DskipTests=true should be used.
+-----
+
 Release 4.4.11
 -------------------
 
