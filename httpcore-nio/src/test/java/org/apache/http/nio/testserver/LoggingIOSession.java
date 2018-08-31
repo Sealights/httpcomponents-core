@@ -33,7 +33,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
 import java.nio.channels.SelectionKey;
 
-import org.apache.commons.logging.Log;
+
 import org.apache.http.nio.reactor.IOSession;
 import org.apache.http.nio.reactor.SessionBufferStatus;
 
@@ -44,13 +44,13 @@ import org.apache.http.nio.reactor.SessionBufferStatus;
  */
 public class LoggingIOSession implements IOSession {
 
-    private final Log log;
+    private final Logger log;
     private final Wire wireLog;
     private final String id;
     private final IOSession session;
     private final ByteChannel channel;
 
-    public LoggingIOSession(final IOSession session, final String id, final Log log, final Log wireLog) {
+    public LoggingIOSession(final IOSession session, final String id, final Logger log, final Logger wireLog) {
         super();
         this.session = session;
         this.channel = new LoggingByteChannel();

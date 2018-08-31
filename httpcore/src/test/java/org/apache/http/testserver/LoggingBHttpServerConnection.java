@@ -35,8 +35,6 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.Header;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
@@ -45,14 +43,17 @@ import org.apache.http.entity.ContentLengthStrategy;
 import org.apache.http.impl.DefaultBHttpServerConnection;
 import org.apache.http.io.HttpMessageParserFactory;
 import org.apache.http.io.HttpMessageWriterFactory;
+import org.slf4j.Logger;
+
+import custom.logging.CustomLoggerFactory;
 
 public class LoggingBHttpServerConnection extends DefaultBHttpServerConnection {
 
     private static final AtomicLong COUNT = new AtomicLong();
 
     private final String id;
-    private final Log log;
-    private final Log headerLog;
+    private final Logger log;
+    private final Logger headerLog;
     private final Wire wire;
 
     public LoggingBHttpServerConnection(
@@ -69,9 +70,9 @@ public class LoggingBHttpServerConnection extends DefaultBHttpServerConnection {
                 incomingContentStrategy, outgoingContentStrategy,
                 requestParserFactory, responseWriterFactory);
         this.id = "http-incoming-" + COUNT.incrementAndGet();
-        this.log = LogFactory.getLog(getClass());
-        this.headerLog = LogFactory.getLog("org.apache.http.headers");
-        this.wire = new Wire(LogFactory.getLog("org.apache.http.wire"), this.id);
+        this.log = CustomLoggerFactory.getLogger(getClass());
+        this.headerLog = CustomLoggerFactory.getLogger("org.apache.http.headers");
+        this.wire = new Wire(CustomLoggerFactory.getLogger("org.apache.http.wire"), this.id);
     }
 
     public LoggingBHttpServerConnection(final int bufferSize) {

@@ -1,4 +1,4 @@
-package org.apache.commons.logging;
+package custom.logging;
 
 import org.slf4j.Logger;
 import org.slf4j.Marker;
@@ -10,10 +10,10 @@ import org.slf4j.Marker;
  * @author ala schneider   Aug 29, 2018
  *
  */
-public class Log implements Logger {
+public class CustomLogger implements Logger {
 	private Logger logger = null;
 	
-	Log(Logger logger) {
+	CustomLogger(Logger logger) {
 		this.logger = logger;
 	}
 
@@ -84,62 +84,62 @@ public class Log implements Logger {
 
 	@Override
 	public boolean isDebugEnabled() {
-		return logger.isDebugEnabled();
+		return isDebugEnabled(null);
 	}
 
 	@Override
 	public void debug(String msg) {
-		logger.debug(msg);
+		if (isDebugEnabled()) logger.debug(msg);
 	}
 
 	@Override
 	public void debug(String format, Object arg) {
-		logger.debug(format, arg);
+		if (isDebugEnabled()) logger.debug(format, arg);
 	}
 
 	@Override
 	public void debug(String format, Object arg1, Object arg2) {
-		logger.debug(format, arg1, arg2);
+		if (isDebugEnabled()) logger.debug(format, arg1, arg2);
 	}
 
 	@Override
 	public void debug(String format, Object... arguments) {
-		logger.debug(format, arguments);
+		if (isDebugEnabled()) logger.debug(format, arguments);
 	}
 
 	@Override
 	public void debug(String msg, Throwable t) {
-		logger.debug(msg, t);
+		if (isDebugEnabled()) logger.debug(msg, t);
 	}
 
 	@Override
 	public boolean isDebugEnabled(Marker marker) {
-		return logger.isDebugEnabled(marker);
+		return CustomLoggerFactory.isDebugOn(getName()) && logger.isDebugEnabled(marker);
 	}
 
 	@Override
 	public void debug(Marker marker, String msg) {
-		logger.debug(marker, msg);
+		if (isDebugEnabled()) logger.debug(marker, msg);
 	}
 
 	@Override
 	public void debug(Marker marker, String format, Object arg) {
-		logger.debug(marker, format, arg);
+		if (isDebugEnabled()) logger.debug(marker, format, arg);
 	}
 
 	@Override
 	public void debug(Marker marker, String format, Object arg1, Object arg2) {
-		logger.debug(marker, format, arg1, arg2);
+		if (isDebugEnabled()) logger.debug(marker, format, arg1, arg2);
 	}
 
 	@Override
 	public void debug(Marker marker, String format, Object... arguments) {
-		logger.debug(marker, format, arguments);
+		if (isDebugEnabled()) logger.debug(marker, format, arguments);
 	}
 
 	@Override
 	public void debug(Marker marker, String msg, Throwable t) {
-		logger.debug(marker, msg, t);
+		if (isDebugEnabled()) logger.debug(marker, msg, t);
 	}
 
 	@Override

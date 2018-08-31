@@ -30,9 +30,6 @@ package org.apache.http.nio.testserver;
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.concurrent.TimeUnit;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.ConnectionClosedException;
 import org.apache.http.ExceptionLogger;
 import org.apache.http.impl.nio.DefaultNHttpServerConnection;
@@ -123,7 +120,7 @@ public class HttpServerNio {
 
     static class SimpleExceptionLogger implements ExceptionLogger {
 
-        private final Log log = LogFactory.getLog(HttpServer.class);
+        private final Logger log = LoggerFactory.getLogger(HttpServer.class);
 
         @Override
         public void log(final Exception ex) {

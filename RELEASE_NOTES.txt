@@ -6,13 +6,15 @@ Version number 4.4.1001 reflects the base version 4.4.10; two last digits serves
 The Sealights private version excludes commons-logging dependencies, since them caused problems in using of test-listener with JBOSS framework.
 
 The following changes were done:
-* The commons-logging dependencies were replaced with slj4j-api dependencies.
-* The package 'org.apache.commons.logging' was added. The package contains classes Log and LogFactory, which implement the bridge
-to slf4j logging framework. This 'cheats' the httpcomponents classes, which continue to use classed Log and LogFactory.
 * Parent project org.apache... and several related plugins were removed, since the private version is for the internal use only.
+* The project group was renamed to 'io.sealights.httpcomponents' (instead of 'org.apache.httpcomponents')
 * All modules except http-core, were excluded from the build
+* The commons-logging dependencies were replaced with slj4j-api dependencies.
+* The package 'custom.logging' was added. The package contains classes CustomLogger and CustomLoggerFactory, which implement the bridge
+to slf4j logging framework. Custom logging implements restricted ability for setting debug level for httpcomponents logs
+* The httpcomponents classes were modified and use classes Logger and CustomLoggerFactory.
 
-Note: To build the project -DskipTests=true should be used.
+Note: The project build should be done with the option -DskipTests=true.
 -----
 
 Release 4.4.11

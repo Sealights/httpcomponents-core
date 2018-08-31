@@ -29,9 +29,6 @@ package org.apache.http.nio.testserver;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
@@ -44,18 +41,18 @@ public class LoggingNHttpServerConnection extends DefaultNHttpServerConnection {
 
     private static final AtomicLong COUNT = new AtomicLong();
 
-    private final Log log;
-    private final Log iolog;
-    private final Log headerLog;
-    private final Log wireLog;
+    private final Logger log;
+    private final Logger iolog;
+    private final Logger headerLog;
+    private final Logger wireLog;
     private final String id;
 
     public LoggingNHttpServerConnection(final IOSession session) {
         super(session, 8 * 1024);
-        this.log = LogFactory.getLog(getClass());
-        this.iolog = LogFactory.getLog(session.getClass());
-        this.headerLog = LogFactory.getLog("org.apache.http.headers");
-        this.wireLog = LogFactory.getLog("org.apache.http.wire");
+        this.log = LoggerFactory.getLogger(getClass());
+        this.iolog = LoggerFactory.getLogger(session.getClass());
+        this.headerLog = LoggerFactory.getLogger("org.apache.http.headers");
+        this.wireLog = LoggerFactory.getLogger("org.apache.http.wire");
         this.id = "http-incoming-" + COUNT.incrementAndGet();
         if (this.iolog.isDebugEnabled() || this.wireLog.isDebugEnabled()) {
             this.session = new LoggingIOSession(session, this.id, this.iolog, this.wireLog);

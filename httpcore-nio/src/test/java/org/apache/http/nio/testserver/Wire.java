@@ -29,14 +29,14 @@ package org.apache.http.nio.testserver;
 
 import java.nio.ByteBuffer;
 
-import org.apache.commons.logging.Log;
+
 
 class Wire {
 
-    private final Log log;
+    private final Logger log;
     private final String id;
 
-    public Wire(final Log log, final String id) {
+    public Wire(final Logger log, final String id) {
         super();
         this.log = log;
         this.id = id;
