@@ -29,6 +29,8 @@ package org.apache.http.nio.testserver;
 
 import java.nio.ByteBuffer;
 
+import org.slf4j.Logger;
+
 
 
 class Wire {

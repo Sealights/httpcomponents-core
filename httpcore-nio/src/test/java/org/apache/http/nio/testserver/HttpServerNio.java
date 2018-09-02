@@ -30,6 +30,7 @@ package org.apache.http.nio.testserver;
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.http.ConnectionClosedException;
 import org.apache.http.ExceptionLogger;
 import org.apache.http.impl.nio.DefaultNHttpServerConnection;
@@ -43,6 +44,8 @@ import org.apache.http.nio.protocol.UriHttpAsyncRequestHandlerMapper;
 import org.apache.http.nio.reactor.ListenerEndpoint;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.util.Asserts;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HttpServerNio {
 

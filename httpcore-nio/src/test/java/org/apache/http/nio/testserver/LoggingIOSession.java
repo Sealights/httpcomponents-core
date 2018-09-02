@@ -33,9 +33,9 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
 import java.nio.channels.SelectionKey;
 
-
 import org.apache.http.nio.reactor.IOSession;
 import org.apache.http.nio.reactor.SessionBufferStatus;
+import org.slf4j.Logger;
 
 /**
  * Decorator class intended to transparently extend an {@link IOSession}

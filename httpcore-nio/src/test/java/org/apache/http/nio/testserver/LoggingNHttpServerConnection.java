@@ -29,6 +29,7 @@ package org.apache.http.nio.testserver;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
+
 import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
@@ -36,6 +37,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.impl.nio.DefaultNHttpServerConnection;
 import org.apache.http.nio.NHttpServerEventHandler;
 import org.apache.http.nio.reactor.IOSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoggingNHttpServerConnection extends DefaultNHttpServerConnection {
 
