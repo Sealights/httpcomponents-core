@@ -14,7 +14,7 @@ The following changes were done:
 to slf4j logging framework. Custom logging implements restricted ability for setting debug level for httpcomponents logs
 * The httpcomponents classes were modified and use classes Logger and CustomLoggerFactory.
 
-Note: The project build should be done with the option -DskipTests=true.
+Note: The project build should be done with the option -DskipTests=true since in the tests are broken, even in the original branch.
 -----
 
 Release 4.4.11
