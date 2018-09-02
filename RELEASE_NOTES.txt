@@ -13,8 +13,15 @@ The following changes were done:
 * The package 'custom.logging' was added. The package contains classes CustomLogger and CustomLoggerFactory, which implement the bridge
 to slf4j logging framework. Custom logging implements restricted ability for setting debug level for httpcomponents logs
 * The httpcomponents classes were modified and use classes Logger and CustomLoggerFactory.
+* Added profiles: 
+*	the default profile with id=testSkip - builds the jars without tests 
+*   the profilewith id=publish - for deployment jars to sealights nexus
+
+The build and deployment should be done as following:
+mvn deploy -P testSkip,publish
 
 Note: The project build should be done with the option -DskipTests=true since in the tests are broken, even in the original branch.
+
 -----
 
 Release 4.4.11

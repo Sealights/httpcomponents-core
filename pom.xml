@@ -148,5 +148,27 @@
 			<url>file:///${user.dir}/local-maven-repo</url>
 		</repository>
   </distributionManagement>
+  
+  <profiles>
+    <profile>
+      <id>testSkip</id>
+      <properties>
+        <maven.test.skip>true</maven.test.skip>
+      </properties>
+    </profile>
+    <profile>
+		<id>publish</id>
+		<activation>
+			<activeByDefault>false</activeByDefault>
+		</activation>
+		<distributionManagement>
+			<repository>
+				<uniqueVersion>false</uniqueVersion>
+				<id>sealights-internal</id>
+				<url>http://nex.sealights.co:8081/repository/sealights-internal</url>
+			</repository>
+		</distributionManagement>
+    </profile>
+  </profiles>
 
 </project>
